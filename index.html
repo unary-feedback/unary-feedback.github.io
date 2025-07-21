@@ -820,7 +820,13 @@
             
             <h3>Multi-Turn Reasoning Performance</h3>
             <p>
-                We compare our multi-turn UFO model against a strong single-turn PPO baseline. For a fair comparison, the baseline is evaluated on 5 independent samples (Pass@5), while our model uses 5 sequential attempts with feedback (Succ@5). Success is recorded if any of the 5 responses is correct. We also analyze the impact of varying the maximum number of interaction turns at training.
+                We compare our method UFO against a single-turn PPO-trained model
+using parallel sampling. For each problem, the baseline generates <em>k</em> independent responses
+in parallel and is evaluated using standard Pass@k metric. In contrast, our multi-turn model
+generates responses sequentially with unary feedback after each attempt, and is evaluated using
+both Succ@k and AvgTurns. Success is recorded if any of the <em>k</em> responses is correct. We also
+conduct ablation studies with different maximum interaction turns (T<sub>max</sub>) to further analyze the
+effect of multi-turn training.
             </p>
             <div style="display: flex; gap: 2rem; align-items: flex-start;">
                 <div class="figure" style="flex: 1; margin: 0;">
